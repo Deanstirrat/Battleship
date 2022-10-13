@@ -19,7 +19,7 @@ html {
 
 .main {
   height: 100%;
-  background-color: lightslategray;
+  background-color: navy;
   display: flex;
   justify-content: space-around;
 }
@@ -46,46 +46,81 @@ html {
 }
 
 .playerBoard {
+  background-color: grey;
+  border-style: solid;
+  border-width: 5px;
+  border-color: grey;
   width: 100%;
   aspect-ratio: 1 / 1;
   display: grid;
   grid-template-rows: repeat(10, 1fr);
   grid-template-columns: repeat(10, 1fr);
-  gap: 5px;
 }
 .computerBoard {
+  background-color: grey;
+  border-style: solid;
+  border-width: 5px;
+  border-color: grey;
   width: 100%;
   aspect-ratio: 1 / 1;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(10, 1fr);
-  gap: 5px;
+}
+
+.computerBoard:hover {
+  cursor: crosshair;
 }
 
 .computerBoard > button {
-  border-style: none;
+  cursor: crosshair;
+  border-style: solid;
 }
-.computerBoard > button:hover {
+button:hover.waterBox {
+  z-index: 2;
   border-style: solid;
   border-width: 5px;
   border-color: red;
+  outline-style: solid;
+  outline-width: 5px;
+  outline-color: red;
+  background-color: red;
+  clip-path: polygon(
+    40% 24%,
+    23% 41%,
+    43% 48%,
+    22% 59%,
+    36% 73%,
+    49% 59%,
+    59% 71%,
+    73% 57%,
+    56% 48%,
+    72% 38%,
+    59% 26%,
+    49% 39%
+  );
 }
 
+.waterBox,
+.hitBox,
+.shipBox,
+.missBox {
+  border-width: 5px;
+  border-color: grey;
+  border-style: solid;
+}
 .waterBox {
-  background-color: blue;
+  background-color: white;
 }
 .hitBox {
   background-color: red;
-  border-style: solid;
-  border-color: white;
 }
 .missBox {
   background-color: darkblue;
 }
 .shipBox {
-  background-color: grey;
-  border-style: solid;
-  border-color: white;
+  background-color: black;
+  border-color: black;
 }
 
 .selectionBoard {

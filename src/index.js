@@ -1,4 +1,4 @@
-import gameSelect from "./functions/gameSelect";
+import { gameSelect } from "./functions/gameSelect";
 import "./style.css";
 
 const content = document.createElement("div");

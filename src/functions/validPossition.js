@@ -7,6 +7,22 @@ const validPossition = (i, j, board, shipLength) => {
       valid = false;
       break;
     }
+    if (j > 0 && board[i][count - 1] !== "W") {
+      valid = false;
+      break;
+    }
+    if (j < board.length - 1 && board[i][count + 1] !== "W") {
+      valid = false;
+      break;
+    }
+    if (i > 0 && board[i - 1][count] !== "W") {
+      valid = false;
+      break;
+    }
+    if (i < board.length - 1 && board[i + 1][count] !== "W") {
+      valid = false;
+      break;
+    }
     if (count >= board.length) {
       valid = false;
       break;

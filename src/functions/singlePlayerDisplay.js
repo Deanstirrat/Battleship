@@ -66,7 +66,53 @@ const singlePlayerDisplay = (player, computer) => {
     }
   }
 
+  const scoreboard = document.createElement("div");
+  scoreboard.classList.add("scoreboardContainer");
+  const playerScore = document.createElement("div");
+  playerScore.classList.add("playerScoreContainter");
+  playerScore.setAttribute("id", "playerScoreContainer");
+  const computerScore = document.createElement("div");
+  computerScore.setAttribute("id", "computerScoreContainer");
+  computerScore.classList.add("computerScoreContainter");
+
+  player.board.ships.forEach((ship) => {
+    const scoreShip = document.createElement("div");
+    scoreShip.classList.add("scoreShip");
+    for (let i = 0; i < ship.length - ship.hits; i++) {
+      const shipToken = document.createElement("div");
+      shipToken.classList.add("shipToken");
+      scoreShip.appendChild(shipToken);
+    }
+    for (let i = 0; i < ship.hits; i++) {
+      const shipToken = document.createElement("div");
+      shipToken.classList.add("shipToken");
+      shipToken.classList.add("hitToken");
+      scoreShip.appendChild(shipToken);
+    }
+    playerScore.appendChild(scoreShip);
+  });
+
+  computer.board.ships.forEach((ship) => {
+    const scoreShip = document.createElement("div");
+    scoreShip.classList.add("scoreShip");
+    for (let i = 0; i < ship.length - ship.hits; i++) {
+      const shipToken = document.createElement("div");
+      shipToken.classList.add("shipToken");
+      scoreShip.appendChild(shipToken);
+    }
+    for (let i = 0; i < ship.hits; i++) {
+      const shipToken = document.createElement("div");
+      shipToken.classList.add("shipToken");
+      shipToken.classList.add("hitToken");
+      scoreShip.appendChild(shipToken);
+    }
+    computerScore.appendChild(scoreShip);
+  });
+  scoreboard.appendChild(playerScore);
+  scoreboard.appendChild(computerScore);
+
   boardsContainer.append(playerBoard);
+  boardsContainer.appendChild(scoreboard);
   boardsContainer.append(computerBoard);
   main.append(boardsContainer);
 };

@@ -80,6 +80,7 @@ const Gameboard = (width) => {
     recieveAttack,
     allSank,
     board,
+    ships,
   };
 };
 

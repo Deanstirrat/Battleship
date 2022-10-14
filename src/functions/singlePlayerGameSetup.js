@@ -7,11 +7,22 @@ const singlePlayerGame = (boardWidth, shipSizes) => {
 
   const shipCords = [
     [
-      // ship 1
-      [9, 0],
-      [9, 1],
-      [9, 2],
-      [9, 3],
+      // ship 7
+      [5, 3],
+    ],
+    [
+      // ship 8
+      [1, 5],
+    ],
+    [
+      // ship 4
+      [0, 8],
+      [1, 8],
+    ],
+    [
+      // ship 5
+      [2, 0],
+      [3, 0],
     ],
     [
       // ship 2
@@ -26,36 +37,25 @@ const singlePlayerGame = (boardWidth, shipSizes) => {
       [9, 5],
     ],
     [
-      // ship 4
-      [0, 8],
-      [1, 8],
+      // ship 1
+      [9, 0],
+      [9, 1],
+      [9, 2],
+      [9, 3],
     ],
-    [
-      // ship 5
-      [2, 0],
-      [3, 0],
-    ],
-    [
-      // ship 6
-      [4, 9],
-      [5, 9],
-    ],
-    [
-      // ship 7
-      [5, 3],
-    ],
-    [
-      // ship 8
-      [1, 5],
-    ],
-    [
-      // ship 9
-      [5, 7],
-    ],
-    [
-      // ship 10
-      [7, 8],
-    ],
+    // [
+    //   // ship 6
+    //   [4, 9],
+    //   [5, 9],
+    // ],
+    // [
+    //   // ship 9
+    //   [5, 7],
+    // ],
+    // [
+    //   // ship 10
+    //   [7, 8],
+    // ],
   ];
 
   // Computer places ships

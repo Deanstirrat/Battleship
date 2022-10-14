@@ -1,3 +1,16 @@
+@font-face {
+  font-family: "titleFont";
+  src: url("./assets/airstrike/airstrike.ttf") format("TrueType");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "gameSelect";
+  src: url("./assets/top-secret/Top\ Secret.ttf") format("TrueType");
+  font-weight: 600;
+  font-style: normal;
+}
+
 body,
 html {
   padding: 0;
@@ -11,33 +24,62 @@ html {
   flex-direction: column;
 }
 .header {
-  background-color: black;
+  font-family: titleFont;
+  background-color: #006494;
   color: white;
   padding: 15px;
   text-align: center;
+  font-size: 5rem;
+  margin: 0;
 }
 
 .main {
   height: 100%;
-  background-color: navy;
+  background-color: #051923;
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 .gameSelectContainer {
-  margin: 20%;
-  background-color: grey;
+  font-family: Arial, Helvetica, sans-serif;
+  height: fit-content;
+  font-size: 2rem;
+  padding: 10px;
+  background-color: #006494;
+  color: white;
   outline-style: solid;
   outline-color: white;
   border-radius: 10px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  gap: 20px;
+}
+.title {
+  padding: 10px;
+  margin: 0;
+}
+
+.gameSelectContainer > button {
+  font-family: gameSelect;
+  padding: 10px;
+  width: 80%;
+  font-size: 1.5rem;
+  color: white;
+  background-color: #00a6fb;
+  border-style: solid;
+  border-color: white;
+  border-radius: 5px;
+  border-width: 1px;
+}
+.gameSelectContainer > button:hover {
+  background-color: #0582ca;
 }
 
 .boardsContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 3fr 1fr 3fr;
   align-items: center;
   justify-content: space-between;
   width: 80%;
@@ -46,26 +88,26 @@ html {
 }
 
 .playerBoard {
-  background-color: grey;
-  border-style: solid;
-  border-width: 5px;
-  border-color: grey;
+  background-color: #35fb38;
+  border-radius: 3px;
+  padding: 5px;
   width: 100%;
   aspect-ratio: 1 / 1;
   display: grid;
   grid-template-rows: repeat(10, 1fr);
   grid-template-columns: repeat(10, 1fr);
+  gap: 8px;
 }
 .computerBoard {
-  background-color: grey;
-  border-style: solid;
-  border-width: 5px;
-  border-color: grey;
+  border-radius: 3px;
+  padding: 5px;
+  background-color: #fb3f35;
   width: 100%;
   aspect-ratio: 1 / 1;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(10, 1fr);
+  gap: 8px;
 }
 
 .computerBoard:hover {
@@ -74,70 +116,107 @@ html {
 
 .computerBoard > button {
   cursor: crosshair;
-  border-style: solid;
 }
 button:hover.waterBox {
-  z-index: 2;
-  border-style: solid;
-  border-width: 5px;
-  border-color: red;
-  outline-style: solid;
-  outline-width: 5px;
-  outline-color: red;
   background-color: red;
-  clip-path: polygon(
-    40% 24%,
-    23% 41%,
-    43% 48%,
-    22% 59%,
-    36% 73%,
-    49% 59%,
-    59% 71%,
-    73% 57%,
-    56% 48%,
-    72% 38%,
-    59% 26%,
-    49% 39%
-  );
 }
 
 .waterBox,
 .hitBox,
 .shipBox,
 .missBox {
-  border-width: 5px;
-  border-color: grey;
-  border-style: solid;
+  border-style: none;
+  box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
 }
 .waterBox {
-  background-color: white;
+  background-color: #051923;
 }
 .hitBox {
   background-color: red;
 }
 .missBox {
-  background-color: darkblue;
+  background-color: #003554;
 }
 .shipBox {
-  background-color: black;
-  border-color: black;
+  background-color: white;
 }
 
 .selectionBoard {
+  background-color: #006494;
+  border-radius: 3px;
+  padding: 5px;
   height: 80%;
   aspect-ratio: 1 / 1;
   display: grid;
   grid-template-rows: repeat(10, 1fr);
   grid-template-columns: repeat(10, 1fr);
-  gap: 5px;
+  gap: 8px;
 }
 
+.emptyBox,
+.tempShip,
+.invalidPossition {
+  border-style: none;
+  box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+}
 .emptyBox {
-  background-color: blue;
+  background-color: #00a6fb;
 }
 .tempShip {
   background-color: lightgreen;
 }
 .invalidPossition {
   background-color: red;
+}
+
+.scoreboardContainer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.playerScoreContainter {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.computerScoreContainter {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.scoreShip {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+}
+.computerScoreContainter > .scoreShip {
+  justify-content: flex-end;
+}
+.shipToken {
+  background-color: beige;
+  width: 15%;
+  aspect-ratio: 1 / 1;
+}
+.hitToken {
+  background-color: red;
+}
+.sunkToken {
+  background-color: red;
+  clip-path: polygon(
+    20% 0%,
+    0% 20%,
+    42% 50%,
+    0% 80%,
+    20% 100%,
+    50% 58%,
+    80% 100%,
+    100% 80%,
+    59% 50%,
+    100% 20%,
+    80% 0%,
+    51% 40%
+  );
 }

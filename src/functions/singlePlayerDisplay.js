@@ -91,6 +91,10 @@ const singlePlayerDisplay = (player, computer) => {
     }
     playerScore.appendChild(scoreShip);
   });
+  const scoreName = document.createElement("p");
+  scoreName.classList.add("scoreName");
+  scoreName.textContent = "Player";
+  playerScore.appendChild(scoreName);
 
   computer.board.ships.forEach((ship) => {
     const scoreShip = document.createElement("div");
@@ -108,11 +112,17 @@ const singlePlayerDisplay = (player, computer) => {
     }
     computerScore.appendChild(scoreShip);
   });
+  const scoreName2 = document.createElement("p");
+  scoreName2.classList.add("scoreName2");
+  scoreName2.textContent = "CPU";
+  computerScore.appendChild(scoreName2);
+
   scoreboard.appendChild(playerScore);
   scoreboard.appendChild(computerScore);
 
   boardsContainer.append(playerBoard);
-  boardsContainer.appendChild(scoreboard);
+  boardsContainer.appendChild(playerScore);
+  boardsContainer.appendChild(computerScore);
   boardsContainer.append(computerBoard);
   main.append(boardsContainer);
 };
